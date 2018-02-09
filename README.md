@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # StandardizingHealthcare
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
@@ -29,4 +28,3 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 =======
 # standardizing-healthcare
 HACKEAM
->>>>>>> 2fe09986a053ba13c08c15eb801167b6a18007de
