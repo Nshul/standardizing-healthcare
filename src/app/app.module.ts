@@ -8,12 +8,17 @@ import {APP_BASE_HREF} from '@angular/common';
 
 import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    SigninComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +28,7 @@ import { AppComponent } from './app.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [{provide: APP_BASE_HREF, useValue : '/' }],
+  providers: [{provide: APP_BASE_HREF, useValue : '/' }, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
