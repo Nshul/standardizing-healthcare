@@ -5,7 +5,7 @@ import { AuthService } from '../auth.service';
 // import * as abc from '../../../assets/js/main';
 
  declare var $ : any;
- 
+
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -15,12 +15,15 @@ export class SigninComponent implements OnInit, AfterViewInit {
 
  
   @ViewChild('f') form : NgForm;
+  errormessage : string;
 
   constructor(private authService : AuthService) { }
 
   ngOnInit() {
-    
-
+    this.authService.errormessage.subscribe(
+      response => {
+        this.errormessage = response;
+      });
   }
 
   ngAfterViewInit(){

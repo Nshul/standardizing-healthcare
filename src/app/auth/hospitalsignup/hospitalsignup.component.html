@@ -42,18 +42,8 @@
 	</div>
 
 	<div class="form-group">
-		<label for="pass">First Name</label>
-		<input type="text" name="fname" id="fname" class="form-control" ngModel required>
-	</div>
-
-	<div class="form-group">
-		<label for="pass">Last Name</label>
-		<input type="text" name="lname" id="lname" class="form-control" ngModel required>
-	</div>
-
-	<div class="form-group">
-		<label for="pass">Date of birth</label>
-		<input type="date" name="dob" id="dob" class="form-control" ngModel required>
+		<label for="pass">Name of Hospital</label>
+		<input type="text" name="name" id="name" class="form-control" ngModel required>
 	</div>
 
 	<div class="form-group">
@@ -62,13 +52,28 @@
 	</div>
 
 	<div class="form-group">
-	<label for="insurance">Current health insurances (if any) hold shift to select more than one):</label>
-      <select multiple class="form-control" id="insurance" name="insurance" ngModel>
-        <option value="ICICI Lombard General Insurance">ICICI Lombard General Insurance</option>
-        <option value="National Insurance Company" >National Insurance Company</option>
-		<option value="New India Assurance">New India Assurance</option>
-		<option value="Star Health Insurance">Star Health Insurance</option>
-		<option value="Max Bupa Health Companion">Max Bupa Health Companion</option>
+		<label for="pass">Address</label>
+		<input type="text" name="address" id="address" class="form-control" ngModel required>
+	</div>
+
+	<div class="form-group">
+		<label for="pass">Pincode</label>
+		<input type="text" name="pincode" id="pincode" class="form-control" ngModel required>
+	</div>
+
+	<div class="form-group">
+	<label for="tier">Services</label>
+      <select multiple class="form-control" id="services" name="services" ngModel>
+        <option *ngFor="let service of services" [value]="service">{{ service }}</option>
+      </select>
+    </div>  
+
+	<div class="form-group">
+	<label for="tier">Tier</label>
+      <select class="form-control" id="tier" name="tier" ngModel>
+        <option value="gold">gold</option>
+        <option value="silver" >silver</option>
+		<option value="platinum">platinum</option>
       </select>
     </div>  
 
