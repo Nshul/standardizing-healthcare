@@ -28,6 +28,7 @@ import { HospitalListComponent } from './hospital-list/hospital-list.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { AppointmentPrescriptionComponent } from './appointment-prescription/appointment-prescription.component';
+import { HealthDataComponent } from './health-data/health-data.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { AppointmentPrescriptionComponent } from './appointment-prescription/app
     AboutComponent,
     ContactComponent,
     AppointmentPrescriptionComponent,
+    HealthDataComponent,
   ],
   imports: [
     BrowserModule,
