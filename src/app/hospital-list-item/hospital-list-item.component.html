@@ -50,4 +50,56 @@
       </div>
     </div>
   </div>
-</div>
+
+  <br>
+
+  <div class="text-center pagination-centered">
+    <div class="row">
+      <div class="col-md-12 animate-box">
+        <a href="#" class="blog-post">
+          <span class="img" style="background-image: url(../../assets/images/blog-2.jpg);"></span>
+          <div class="desc">
+            <h3>Show other Services</h3>
+            <span class="cat">Collection</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="text-center pagination-centered animate-box">
+      <div class="datesrow row">
+        <div class="dates col-md-2" (click)='onSelect("Mon")'>
+          <span class="date">10</span>
+          <span class="day">Mon</span>
+        </div>
+        <div class="dates col-md-2" (click)='onSelect("Tue")'>
+          <span class="date">11</span>
+          <span class="day">Tue</span>
+        </div>
+        <div class="dates col-md-2" (click)='onSelect("Wed")'>
+          <span class="date">12</span>
+          <span class="day">Wed</span>
+        </div>
+        <div class="dates col-md-2" (click)='onSelect("Thurs")'>
+          <span class="date">13</span>
+          <span class="day">Thurs</span>
+        </div>
+        <div class="dates col-md-2" (click)='onSelect("Fri")'>
+          <span class="date">14</span>
+          <span class="day">Fri</span>
+        </div>
+        <div class="dates col-md-2" (click)='onSelect("Sat")'>
+          <span class="date">15</span>
+          <span class="day">Sat</span>
+        </div>
+      </div>
+      <div class="displayappointments" *ngIf='selectedSchedule'>
+        <ul class="appointments">
+        <li *ngFor="let appoint of selectedSchedule">
+          <span>{{appoint}}</span>
+        </li>
+      </ul>
+      </div>
+    </div>
+
+  </div>
