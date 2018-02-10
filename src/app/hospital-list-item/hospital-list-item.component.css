@@ -1,0 +1,33 @@
+.datesrow {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-wrap: nowrap;
+}
+ul.appointments li {
+    display: inline;
+    padding: 10px;
+    font-size: 3em;
+    background-color: #F0EDEC;
+    margin: 10px;
+}
+.dates {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.date {
+    font-size: 3em;
+}
+.day {
+    font-size: 2em;
+}
+.displayappointments {
+    margin: 10px;
+}
+.hospital-main-image {
+    max-height: 40vh;
+    max-width: 100%;
+    padding: 20px;
+    margin: 5px;
+}
