@@ -8,12 +8,14 @@ import {APP_BASE_HREF} from '@angular/common';
 
 import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
