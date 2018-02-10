@@ -7,8 +7,8 @@
 					</div>
 					<div class="col-xs-10 text-right menu-1">
 						<ul>
-							<li class="active"><a [routerLink]="['/']">Home</a></li>
-							<li><a [routerLink]="['/signin']" routerLinkActive="active" *ngIf="!authService.isAuth()">Log In</a></li>
+							<li routerLinkActive="active"><a [routerLink]="['/home']">Home</a></li>
+							<li routerLinkActive="active"><a [routerLink]="['/signin']" *ngIf="!authService.isAuth()">Log In</a></li>
 							<li><a href="#" *ngIf="authService.isAuth()">Profile</a></li>
 							<li class="has-dropdown">
 								<a href="blog.html">For Medical Professionals</a>
@@ -17,8 +17,8 @@
 									<li><a href="#">Are you a hospital represntative?</a></li>
 								</ul>
 							</li>
-							<li><a href="about.html">About us</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li routerLinkActive="active"><a href="about.html">About us</a></li>
+							<li routerLinkActive="active"><a href="contact.html">Contact</a></li>
 						</ul>
 					</div>
 				</div>

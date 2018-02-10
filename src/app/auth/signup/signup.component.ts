@@ -1,13 +1,15 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
+
+declare var $ : any;
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit, AfterViewInit {
 
   @ViewChild('f') form : NgForm;
 
@@ -20,6 +22,10 @@ export class SignupComponent implements OnInit {
     const { email, pass, fname, lname, contact, dob, insurance } = f.value;
     this.authService.signup(email,pass,fname, lname, dob, contact, insurance);
     
+  }
+
+  ngAfterViewInit(){
+    $.getScript('../../../assets/js/main.js')
   }
 
 }
