@@ -3,11 +3,8 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { HospitalsignupService } from '../hospitalsignup.service';
 
-<<<<<<< HEAD
-declare var $ : any;
-=======
 declare var $: any;
->>>>>>> 19fd9397019531c65f344e7e91e344acc5944d7b
+
 
 @Component({
   selector: 'app-hospitalsignup',

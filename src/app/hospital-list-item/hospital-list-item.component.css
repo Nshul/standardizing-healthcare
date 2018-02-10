@@ -25,3 +25,9 @@ ul.appointments li {
 .displayappointments {
     margin: 10px;
 }
+.hospital-main-image {
+    max-height: 40vh;
+    max-width: 100%;
+    padding: 20px;
+    margin: 5px;
+}
