@@ -16,6 +16,8 @@ import { SignupComponent } from './auth/signup/signup.component';
 
 
 import { AuthService } from './auth/auth.service';
+import { DoctorPrescriptionComponent } from './doctor-prescription/doctor-prescription.component';
+import { DoctorLandingpageComponent } from './doctor-landingpage/doctor-landingpage.component';
 import { HospitalListItemComponent } from './hospital-list-item/hospital-list-item.component';
 import { DoctorsignupComponent } from './auth/doctorsignup/doctorsignup.component';
 import { HospitalsignupComponent } from './auth/hospitalsignup/hospitalsignup.component';
@@ -30,6 +32,8 @@ import { DoctorsignupService } from './auth/doctorsignup.service';
     UserProfileComponent,
     SigninComponent,
     SignupComponent,
+    DoctorPrescriptionComponent,
+    DoctorLandingpageComponent,
     HospitalListItemComponent,
     DoctorsignupComponent,
     HospitalsignupComponent,
