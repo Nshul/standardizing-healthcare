@@ -1,6 +1,6 @@
 
 <div class="container-wrap">
-		<!-- <aside id="fh5co-hero">
+		<aside id="fh5co-hero">
 			<div class="flexslider">
 				<ul class="slides">
 			   	<li style="background-image: url(../../assets/images/img_bg_3.jpg);">
@@ -18,7 +18,7 @@
 			   	</li>		   	
 			  	</ul>
 		  	</div>
-		</aside> -->
+		</aside>
 
 		<div id="fh5co-contact">
 			<div class="row animate-box">
@@ -44,6 +44,10 @@
 			<button type="submit" class="btn btn-success" [disabled]="!f.valid">Sign In</button>
 
 		</form>
+		<br>
+		<h3 style="color: grey">New User? <a [routerLink]="['/signup']"><u>Sign Up</u></a> </h3>
+
 		</div></div>
 		</div>
 	</div><!-- END container-wrap -->
+
