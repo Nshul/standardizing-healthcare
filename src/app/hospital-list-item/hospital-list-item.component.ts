@@ -17,6 +17,12 @@ export class HospitalListItemComponent implements OnInit {
     Sat: ['8:30', '8:45', '9:00', '9:15', '9:30']
   };
 
+  hospitalName: string = 'Goofed Up Hospital';
+
+  hospitalAddress: string = 'DLF Phase-5, Meerut';
+
+  servicePrice: number = 800;
+
   onSelect(day: string): void {
     this.selectedSchedule = this.setSchedule[day];
   }
