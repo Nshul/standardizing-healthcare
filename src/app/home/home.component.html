@@ -10,7 +10,7 @@
 				   				<div class="slider-text-inner">
 				   					<h1>Cloud based E-precriptions</h1>
 										<h2>Real-time precriptions from your doctor, conveniently. </h2>
-										<p><a class="btn btn-primary btn-demo" href="#"> Current prescriptions</a> <a class="btn btn-primary btn-learn">Learn More</a></p>
+										<p><a class="btn btn-primary btn-demo">Current prescriptions</a> <a class="btn btn-primary btn-learn" [routerLink]="['/about']">Learn More</a></p>
 				   				</div>
 				   			</div>
 				   		</div>
@@ -24,7 +24,7 @@
 				   				<div class="slider-text-inner">
 				   					<h1>Pay from your electronic wallet</h1>
 										<h2>Hassle-free checkout with consumer protection. </h2>
-										<p><a class="btn btn-primary btn-demo" href="#"> Wallet Balance</a> <a class="btn btn-primary btn-learn">Learn More</a></p>
+										<p><a class="btn btn-primary btn-demo"> Wallet Balance</a> <a class="btn btn-primary btn-learn" [routerLink]="['/about']">Learn More</a></p>
 				   				</div>
 				   			</div>
 				   		</div>
@@ -38,7 +38,7 @@
 				   				<div class="slider-text-inner text-center">
 				   					<h1>HEALTH DATA AND HISTORY</h1>
                                     <h2>Precise data about all of your health history stored digitally for you and your future appointments </h2>
-										<p><a class="btn btn-primary btn-demo" href="#"> View your data</a> <a class="btn btn-primary btn-learn">Learn More</a></p>
+										<p><a class="btn btn-primary btn-demo"> View your data</a> <a class="btn btn-primary btn-learn" [routerLink]="['/about']">Learn More</a></p>
 				   				</div>
 				   			</div>
 				   		</div>
@@ -52,7 +52,7 @@
 				   				<div class="slider-text-inner">
 				   					<h1>Consult a Specialist</h1>
 										<h2>Choose from over thousands specialists for your problem.</h2>
-										<p><a class="btn btn-primary btn-demo" href="#"> Consult now</a> <a class="btn btn-primary btn-learn">Learn More</a></p>
+										<p><a class="btn btn-primary btn-demo"> Consult now</a> <a class="btn btn-primary btn-learn" [routerLink]="['/about']">Learn More</a></p>
 				   				</div>
 				   			</div>
 				   		</div>
@@ -66,7 +66,7 @@
 
     <div class="col-md-12">
       <div class="input-group">
-   <input type="text" class="form-control" placeholder="Search" id="txtSearch"/>
+   <input type="text" class="form-control" placeholder="Search services" id="txtSearch" [(ngModel)]="service">
    <div class="input-group-btn">
         <button class="btn btn-primary" type="submit">
         <i class="fa fa-search fa-2x" aria-hidden="true"></i>
