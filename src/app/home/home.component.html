@@ -64,16 +64,23 @@
 		<div id="fh5co-services">
 			<form action="/hms/accommodations" method="GET"> 
 
-    <div class="col-md-12">
-      <div class="input-group">
-   <input type="text" class="form-control" placeholder="Search services" id="txtSearch" [(ngModel)]="service">
-   <div class="input-group-btn">
-        <button class="btn btn-primary" type="submit">
-        <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+   
+  <div class="col-md-12">
+    <div class="input-group">
+   		<input list="services" type="text" class="form-control" placeholder="Search service" name="txtSearch" [(ngModel)]="service">
+ 
+		<datalist id="services">
+		  <option *ngFor="let service of services" [value]="service">
+		</datalist>
+   		
+   		<div class="input-group-btn">
+        	<button class="btn btn-primary" type="submit" (click)="searchHospital()">
+        	<i class="fa fa-search fa-2x" aria-hidden="true"></i>
         </button>
-   </div>
-   </div>
-    </div>
+		</div>
+   	
+   	</div>
+  </div>
  
 </form>
 
