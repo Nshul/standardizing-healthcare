@@ -16,6 +16,8 @@ import { SignupComponent } from './auth/signup/signup.component';
 
 
 import { AuthService } from './auth/auth.service';
+import { DoctorPrescriptionComponent } from './doctor-prescription/doctor-prescription.component';
+import { DoctorLandingpageComponent } from './doctor-landingpage/doctor-landingpage.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { AuthService } from './auth/auth.service';
     UserProfileComponent,
     SigninComponent,
     SignupComponent,
+    DoctorPrescriptionComponent,
+    DoctorLandingpageComponent,
   ],
   imports: [
     BrowserModule,
