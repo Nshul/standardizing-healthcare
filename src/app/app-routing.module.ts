@@ -8,6 +8,8 @@ import { HospitalsignupComponent } from './auth/hospitalsignup/hospitalsignup.co
 import { DoctorsignupComponent } from './auth/doctorsignup/doctorsignup.component';
 import { DoctorLandingpageComponent } from './doctor-landingpage/doctor-landingpage.component';
 import { DoctorPrescriptionComponent } from './doctor-prescription/doctor-prescription.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 const routercons : Routes = [
@@ -18,6 +20,8 @@ const routercons : Routes = [
   {path : 'doctorsignup', component : DoctorsignupComponent},
   {path : 'hospitalsignup', component : HospitalsignupComponent},
   {path : 'doctorlanding', component : DoctorLandingpageComponent},
+  {path : 'about', component : AboutComponent},
+  {path : 'contact', component : ContactComponent},
 ];
 
 
