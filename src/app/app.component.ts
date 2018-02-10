@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -6,13 +8,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'app';
 
   validated : boolean =  false;
 
   logout(){
 
+  }
+
+  ngOnInit(){
+  	firebase.initializeApp({
+     	apiKey: "AIzaSyBgAXE7zgOj_lq_vRQoPbLJlZqR3aR18uM",
+	    authDomain: "swasthya-68c5a.firebaseapp.com",
+	    databaseURL: "https://swasthya-68c5a.firebaseio.com",
+	    projectId: "swasthya-68c5a",
+	    storageBucket: "swasthya-68c5a.appspot.com",
+	    messagingSenderId: "168199144749"
+
+     });
+  }
   }
 
 
