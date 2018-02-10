@@ -6,6 +6,8 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { HospitalsignupComponent } from './auth/hospitalsignup/hospitalsignup.component';
 import { DoctorsignupComponent } from './auth/doctorsignup/doctorsignup.component';
+import { DoctorLandingpageComponent } from './doctor-landingpage/doctor-landingpage.component';
+import { DoctorPrescriptionComponent } from './doctor-prescription/doctor-prescription.component';
 
 
 const routercons : Routes = [
@@ -15,6 +17,7 @@ const routercons : Routes = [
   {path : 'signup', component : SignupComponent},
   {path : 'doctorsignup', component : DoctorsignupComponent},
   {path : 'hospitalsignup', component : HospitalsignupComponent},
+  {path : 'doctorlanding', component : DoctorLandingpageComponent},
 ];
 
 

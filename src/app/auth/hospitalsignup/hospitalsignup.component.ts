@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { HospitalsignupService } from '../hospitalsignup.service';
 
+declare var $ : any;
+
 @Component({
   selector: 'app-hospitalsignup',
   templateUrl: './hospitalsignup.component.html',
