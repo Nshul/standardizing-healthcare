@@ -42,40 +42,42 @@
 	</div>
 
 	<div class="form-group">
-		<label for="pass">First Name</label>
+		<label for="fname">First Name</label>
 		<input type="text" name="fname" id="fname" class="form-control" ngModel required>
 	</div>
 
 	<div class="form-group">
-		<label for="pass">Last Name</label>
+		<label for="lname">Last Name</label>
 		<input type="text" name="lname" id="lname" class="form-control" ngModel required>
 	</div>
 
 	<div class="form-group">
-		<label for="pass">Date of birth</label>
+		<label for="dob">Date of birth</label>
 		<input type="date" name="dob" id="dob" class="form-control" ngModel required>
 	</div>
 
 	<div class="form-group">
-		<label for="pass">Contact</label>
+		<label for="contact">Contact</label>
 		<input type="text" name="contact" id="contact" class="form-control" ngModel required="">
 	</div>
+
 
 	<div class="form-group">
 		<label for="email">E-Mail of hospital you are associated with</label>
 		<input type="email" name="hemail" id="hemail" class="form-control" ngModel email required>
 	</div>
 
-	<!-- <div class="form-group">
-	<label for="insurance">Current health insurances (if any) hold shift to select more than one):</label>
-      <select multiple class="form-control" id="insurance" name="insurance" ngModel>
-        <option value="ICICI Lombard General Insurance">ICICI Lombard General Insurance</option>
-        <option value="National Insurance Company" >National Insurance Company</option>
-		<option value="New India Assurance">New India Assurance</option>
-		<option value="Star Health Insurance">Star Health Insurance</option>
-		<option value="Max Bupa Health Companion">Max Bupa Health Companion</option>
+	<div class="form-group">
+		<label for="qualifications">Qualifications</label>
+		<input type="text" name="qualificatios" id="qualifications" class="form-control" ngModel required="">
+	</div>
+
+	<div class="form-group">
+	<label for="specialities">Specialities (if any) hold shift to select more than one):</label>
+      <select multiple class="form-control" id="specialities" name="specialities" ngModel required>
+        <option *ngFor="let speciality of specialities" [value]="speciality">{{ speciality }}</option>
       </select>
-    </div>   -->
+    </div>  
 
 	<button type="submit" class="btn btn-info" [disabled]="!f.valid">Sign Up</button>
 	<br>

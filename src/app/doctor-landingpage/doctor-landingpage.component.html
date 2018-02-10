@@ -8,46 +8,48 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-12 animate-box">
-						<a href="#" class="blog-post">
+					<div class="col-md-12 animate-box" *ngFor="let appointment of appointments">
+						<div class="blog-post">
 							
 							<div class="desc">
-								<h3> appointment_id</h3>
-								<span class="cat">appointment_date , Appointment_time</span>
+								<h3> {{ appointment.id }}</h3>
+								<span class="cat">{{ appointment.date }} , {{ appointment.time }}</span>
 							</div>
                             
-                        <a class="btn btn-primary btn-demo" href="#" style="float:right;"> Prescribe</a>
-						</a>
-					</div>
-					<div class="col-md-12 animate-box">
-						<a href="#" class="blog-post">
-							
-							<div class="desc">
-								<h3> appointment_id</h3>
-								<span class="cat">appointment_date , Appointment_time</span>
-							</div>
-                             <a class="btn btn-primary btn-demo" href="#" style="float:right;"> Prescribe</a>
-						</a>
-					</div>
-                    <div class="col-md-12 animate-box">
-						<a href="#" class="blog-post">
-							
-							<div class="desc">
-								<h3> appointment_id</h3>
-								<span class="cat">appointment_date , Appointment_time</span>
-							</div> <a class="btn btn-primary btn-demo" href="#" style="float:right;"> Prescribe</a>
-						</a>
-					</div>
-					<div class="col-md-12 animate-box">
-						<a href="#" class="blog-post">
-							
-							<div class="desc">
-								<h3> appointment_id</h3>
-								<span class="cat">appointment_date , Appointment_time</span>
-							</div> <a class="btn btn-primary btn-demo" href="#" style="float:right;"> Prescribe</a>
-						</a>
+                        <button class="btn btn-success" style="float:right;" (click)="prescribe(appointment.id)">E-Prescribe</button>
+						</div>
 					</div>
 				</div>
+			</div>
+
+			<div class="blog-entry fh5co-light-grey">
+
+				<p>Selected Appointment: {{ appointmentId }} </p>
+				
+					<input type="number" placeholder="Number of Medicines" class="form-control" [(ngModel)]="no_of_medicines">
+				<button style="width: 100%" (click)="setNum()" class="btn btn-success">Set</button>
+
+
+				<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+					<div *ngFor="let i of arr">
+
+						<br/><p>Medicine {{ i+1 }} :</p>
+
+						
+							<input type="text" [name]=" 'medicine' + (i+1) "  class="form-control" placeholder="Medicine" ngModel required>
+						
+
+						
+							<input type="number" [name]=" 'dosage' + (i+1) "  class="form-control" placeholder="Dosage" ngModel required>
+						
+
+						
+							<input type="text" [name]=" 'comments' + (i+1) "  class="form-control" placeholder="Comments" ngModel required>
+						
+					</div>
+					<button type="submit" class="btn btn-success" [disabled]="!f.valid">Prescribe</button>
+				</form>
+
 			</div>
 </div>
 </div>

@@ -18,6 +18,4 @@ export class HomeComponent implements OnInit, AfterViewInit {
     $.getScript('../../../assets/js/bootstrap.min.js');
   }
 
-  ngOnInit(){}
-
 }
