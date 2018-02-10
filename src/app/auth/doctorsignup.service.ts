@@ -4,18 +4,19 @@ import * as firebase from 'firebase';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Injectable()
-export class AuthService {
-  token : string;
+export class DoctorsignupService {
+
+	token : string;
   errormessage = new Subject<string>();
 
   constructor(private router : Router, private activatedRoute : ActivatedRoute) { }
 
-  signup(email : string, pass: string, fname, lname, dob, contact, insurance){
+  signup(email,pass,fname,lname,dob,contact,hemail){
       firebase.auth().createUserWithEmailAndPassword(email,pass)
       .then((patient) =>{
         console.log(patient);
         firebase.database().ref(`/patients/${patient.uid}`)
-        .set({ fname, lname, dob, contact, insurance});
+        .set({ email,pass,fname,lname,dob,contact,hemail });
         // .then(() => { console.log("done"); }).catch( err => { console.log(err); });
 
       })

@@ -1,20 +1,19 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
-
-declare var $ : any;
+import { DoctorsignupService } from '../doctorsignup.service';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  selector: 'app-doctorsignup',
+  templateUrl: './doctorsignup.component.html',
+  styleUrls: ['./doctorsignup.component.css']
 })
-export class SignupComponent implements OnInit, AfterViewInit {
+export class DoctorsignupComponent implements OnInit, AfterViewInit {
 
   @ViewChild('f') form : NgForm;
   errormessage : string ;
 
-  constructor(private authService : AuthService) { }
+  constructor(private authService : DoctorsignupService) { }
 
   ngOnInit() {
     this.authService.errormessage.subscribe(
@@ -24,9 +23,9 @@ export class SignupComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit(f : NgForm){
-    const { email, pass, fname, lname, dob, contact, insurance } = f.value;
+    const { email,pass,fname,lname,dob,contact,hemail } = f.value;
     console.log(f.value);
-    this.authService.signup(email,pass,fname, lname, dob, contact, insurance);
+    this.authService.signup(email, pass, fname, lname, dob, contact, hemail);
     
   }
 

@@ -17,6 +17,11 @@ import { SignupComponent } from './auth/signup/signup.component';
 
 import { AuthService } from './auth/auth.service';
 import { HospitalListItemComponent } from './hospital-list-item/hospital-list-item.component';
+import { DoctorsignupComponent } from './auth/doctorsignup/doctorsignup.component';
+import { HospitalsignupComponent } from './auth/hospitalsignup/hospitalsignup.component';
+
+import { HospitalsignupService } from './auth/hospitalsignup.service';
+import { DoctorsignupService } from './auth/doctorsignup.service';
 
 @NgModule({
   declarations: [
@@ -26,6 +31,8 @@ import { HospitalListItemComponent } from './hospital-list-item/hospital-list-it
     SigninComponent,
     SignupComponent,
     HospitalListItemComponent,
+    DoctorsignupComponent,
+    HospitalsignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +42,7 @@ import { HospitalListItemComponent } from './hospital-list-item/hospital-list-it
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [{provide: APP_BASE_HREF, useValue : '/' }, AuthService],
+  providers: [{provide: APP_BASE_HREF, useValue : '/' }, AuthService, HospitalsignupService, DoctorsignupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

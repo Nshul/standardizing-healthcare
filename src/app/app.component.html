@@ -11,10 +11,10 @@
 							<li routerLinkActive="active"><a [routerLink]="['/signin']" *ngIf="!authService.isAuth()">Log In</a></li>
 							<li><a href="#" *ngIf="authService.isAuth()">Profile</a></li>
 							<li class="has-dropdown">
-								<a href="blog.html">For Medical Professionals</a>
+								<a>Register for Medical Professionals</a>
 								<ul class="dropdown">
-									<li><a href="#">Are you a doctor?</a></li>
-									<li><a href="#">Are you a hospital represntative?</a></li>
+									<li><a [routerLink]="['/doctorsignup']">Are you a doctor?</a></li>
+									<li><a [routerLink]="['/hospitalsignup']">Are you a hospital represntative?</a></li>
 								</ul>
 							</li>
 							<li routerLinkActive="active"><a href="about.html">About us</a></li>
