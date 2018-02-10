@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { DoctorsignupService } from '../doctorsignup.service';
 
-declare var $ : any;
+declare var $: any;
 
 @Component({
   selector: 'app-doctorsignup',

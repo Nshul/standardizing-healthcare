@@ -11,12 +11,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   constructor() { }
 
-  ngOnInit(){}
-
   ngAfterViewInit(){
     // console.log(abc);
     // abc.re_render();
-    $.getScript('../../../assets/js/main.js')
+    $.getScript('../../../assets/js/main.js');
+    $.getScript('../../../assets/js/bootstrap.min.js');
   }
 
 }

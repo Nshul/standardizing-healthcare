@@ -21,6 +21,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     $.getScript('../assets/js/main.js');
+     $.getScript('../../../assets/js/bootstrap.min.js');
   }
 
   ngOnInit() {
