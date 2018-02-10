@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
-declare var $ : any;
+declare var $: any;
 
 @Component({
   selector: 'app-doctor-prescription',
@@ -8,14 +8,11 @@ declare var $ : any;
   styleUrls: ['./doctor-prescription.component.css']
 })
 export class DoctorPrescriptionComponent implements OnInit, AfterViewInit {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  ngAfterViewInit() {
+    $.getScript('../../../assets/js/main.js');
   }
-
-  ngAfterViewInit(){
-  	$.getScript('../../../assets/js/main.js');
-  }
-
 }

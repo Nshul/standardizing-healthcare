@@ -1,59 +1,51 @@
 <div class="container">
   <div class="span3 well">
     <div class="text-center pagination-centered">
-<<<<<<< HEAD
-      <h3 class="media-heading">Hospital Name <!--fname lname -->
-        <small></small>
-      </h3>
-      <span>
-        <strong>Hospital Details </strong>
-      </span>
-      <!-- <span class="label label-warning">HTML5/CSS</span> -->
-      <br><span class="label label-info">appointment_id</span>  <!-- insurance -->
-      <!-- <span class="label label-info">Microsoft Office</span>
-      <span class="label label-success">Windows XP, Vista, 7</span> -->
-=======
-      <h3 class="media-heading">{{hospitalName}} <!--fname lname -->
+      <h3 class="media-heading">{{hospitalName}}
+        <!--fname lname -->
         <small></small>
       </h3>
       <span>
         <strong> {{hospitalAddress}} </strong>
       </span>
-      
-      <br><span class="label label-info">{{prescriptionDate}}</span> 
-    
->>>>>>> b9bbf8812a012cf87150503d2ff44832c97497af
+
+      <br>
+      <span class="label label-info">{{prescriptionDate}}</span>
+
     </div>
     <hr>
     <div class="text-center pagination-centered">
- <div class="row">
-<div class="col-md-12">
-	<!-- Category -->
-	<div class="single category">
-		<h3 class="side-title">Prescription</h3>
-		<ul class="list-unstyled">
-      <li *ngFor="let medicine of prescribedMedicine">
-          <a href="" title=""><span class="pull-left">{{medicine.medicine}}</span> {{medicine.dosage}}<span class="pull-right">{{medicine.comment}}</span></a>
-      </li>
-            <!-- <li><a href="" title=""><span class="pull-left">Medicine name</span> Dosage<span class="pull-right">comment</span></a></li>
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Category -->
+          <div class="single category">
+            <h3 class="side-title">Prescription</h3>
+            <ul class="list-unstyled">
+              <li *ngFor="let medicine of prescribedMedicine">
+                <a href="" title="">
+                  <span class="pull-left">{{medicine.medicine}}</span> {{medicine.dosage}}
+                  <span class="pull-right">{{medicine.comment}}</span>
+                </a>
+              </li>
+              <!-- <li><a href="" title=""><span class="pull-left">Medicine name</span> Dosage<span class="pull-right">comment</span></a></li>
             <li><a href="" title=""><span class="pull-left">Medicine name</span> Dosage<span class="pull-right">comment</span></a></li>
             <li><a href="" title=""><span class="pull-left">Medicine name</span> Dosage<span class="pull-right">comment</span></a></li> -->
-		</ul>
-       
-   </div>
-     
- 
-</div>
-      <br>
-    </div>
+            </ul>
 
-    <!-- Recent Appointments Div -->
-    <div class="row animate-box">
-      <div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-        <h2>{{doctorName}}</h2>
-        <p>Doctor Details / Digital Signature</p>
+          </div>
+
+
+        </div>
+        <br>
       </div>
-    </div>
-    
 
-  </div>
+      <!-- Recent Appointments Div -->
+      <div class="row animate-box">
+        <div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+          <h2>{{doctorName}}</h2>
+          <p>Doctor Details / Digital Signature</p>
+        </div>
+      </div>
+
+
+    </div>
