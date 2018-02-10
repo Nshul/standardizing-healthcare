@@ -12,6 +12,26 @@ export class DoctorsignupComponent implements OnInit, AfterViewInit {
 
   @ViewChild('f') form : NgForm;
   errormessage : string ;
+  specialities : string[] = [
+        'Anatomic Pathology',
+        'Anesthesiology',
+        'Assistive Therapy',
+        'Athletic Training',
+        'Attendant Care',
+        'Audiology',
+        'Podiatry',
+        'Preventive Medicine',
+        'Proctology',
+        'Prosthetics',
+        'Prosthetics & Orthotics',
+        'Prosthodontics',
+        'Psychiatry',
+        'Psychology',
+        'Psychosomatic Medicine',
+        'Psychotherapy',
+        'Pulmonary Function Technology',
+        'Pulmonology',
+]
 
   constructor(private authService : DoctorsignupService) { }
 
@@ -23,9 +43,9 @@ export class DoctorsignupComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit(f : NgForm){
-    const { email,pass,fname,lname,dob,contact,hemail } = f.value;
+    const { email,pass,fname,lname,dob,contact,hemail,qualificatios, specialities } = f.value;
     console.log(f.value);
-    this.authService.signup(email, pass, fname, lname, dob, contact, hemail);
+    this.authService.signup(email, pass, fname, lname, dob, contact, hemail,qualificatios, specialities);
     
   }
 

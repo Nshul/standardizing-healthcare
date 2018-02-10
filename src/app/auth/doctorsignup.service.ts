@@ -11,12 +11,12 @@ export class DoctorsignupService {
 
   constructor(private router : Router, private activatedRoute : ActivatedRoute) { }
 
-  signup(email,pass,fname,lname,dob,contact,hemail){
+  signup(email,pass,fname,lname,dob,contact,hemail,qualificatios, specialities){
       firebase.auth().createUserWithEmailAndPassword(email,pass)
       .then((patient) =>{
         console.log(patient);
         firebase.database().ref(`/patients/${patient.uid}`)
-        .set({ email,pass,fname,lname,dob,contact,hemail });
+        .set({ email,pass,fname,lname,dob,contact,hemail,qualificatios, specialities });
         // .then(() => { console.log("done"); }).catch( err => { console.log(err); });
 
       })
