@@ -16,6 +16,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 
 
 import { AuthService } from './auth/auth.service';
+import { HospitalListItemComponent } from './hospital-list-item/hospital-list-item.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AuthService } from './auth/auth.service';
     UserProfileComponent,
     SigninComponent,
     SignupComponent,
+    HospitalListItemComponent,
   ],
   imports: [
     BrowserModule,
