@@ -10,6 +10,7 @@ import { DoctorLandingpageComponent } from './doctor-landingpage/doctor-landingp
 import { DoctorPrescriptionComponent } from './doctor-prescription/doctor-prescription.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { HospitalListComponent } from './hospital-list/hospital-list.component';
 
 
 const routercons : Routes = [
@@ -22,6 +23,7 @@ const routercons : Routes = [
   {path : 'doctorlanding', component : DoctorLandingpageComponent},
   {path : 'about', component : AboutComponent},
   {path : 'contact', component : ContactComponent},
+  {path : 'hospital-list/:service', component : HospitalListComponent},
 ];
 
 

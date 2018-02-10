@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 declare var $: any;
 declare var google: any;
@@ -9,6 +10,9 @@ declare var google: any;
   styleUrls: ['./hospital-list.component.css']
 })
 export class HospitalListComponent implements OnInit {
+
+  service : string = "";
+
   hospitalName: string = 'Goofed Up Hospital';
   hospitalGeoLocation: Location = {
     latitude: 28.57,
@@ -20,7 +24,7 @@ export class HospitalListComponent implements OnInit {
   serviceCost: number = 260;
   geolocationPosition: any;
 
-  constructor() {}
+  constructor(private router : Router, private activatedRoute : ActivatedRoute) {}
 
   ngOnInit() {
     $.getScript(
@@ -62,6 +66,13 @@ export class HospitalListComponent implements OnInit {
         }
       );
     }
+
+    this.service = this.activatedRoute.snapshot.paramMap.get('service');
+    console.log('Service is now : ' + this.service);
+    // firebase.database().ref(`services/`+this.service)
+
+
+
   }
 }
 
