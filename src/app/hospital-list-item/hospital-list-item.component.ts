@@ -20,6 +20,28 @@ export class HospitalListItemComponent implements OnInit {
   hospitalName: string = 'Goofed Up Hospital';
 
   hospitalAddress: string = 'DLF Phase-5, Meerut';
+  
+  avg_user_rating: number = 3.5;
+  ReviewList : ReviewItem[] = [
+  { user:'Apar',
+  date:'February 11, 2018',
+  title:'Lol nice',
+  review:'very nice hospital. affordable and efficient'
+  
+  },{ user:'Archit',
+  date:'February 11, 2018',
+  title:'Lol ',
+  review:'very nice hospital. affordable and efficient'
+  
+  },{ user:'Anshul',
+  date:'February 10, 2018',
+  title:' nice',
+  review:'very nice hospital. affordable and efficient'
+  
+  },
+  ]
+  
+  
 
   servicePrice: number = 800;
 
@@ -30,4 +52,11 @@ export class HospitalListItemComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+}
+
+class ReviewItem {
+user:string;
+date:string;
+title:string;
+review:string;
 }
