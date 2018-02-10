@@ -301,6 +301,7 @@ h1, h2, h3, h4, h5, h6, figure {
   background: #66D37E;
   margin: 0 auto;
   opacity: 0;
+    z-index: 2002;
   -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
   transition: transform 0.3s, opacity 0.3s;
   -webkit-transform: translate3d(0, -10px, 0);
@@ -688,12 +689,12 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 @media screen and (max-width: 768px) {
   .work {
-    height: 400px;
+    height: 150px;
   }
 }
 @media screen and (max-width: 480px) {
   .work {
-    height: 270px;
+    height: 80px;
   }
 }
 .work .desc {
@@ -707,11 +708,13 @@ h1, h2, h3, h4, h5, h6, figure {
   transition: 0.3s;
 }
 .work .desc h3 {
-  font-size: 14px;
+  font-size: 24px;
   -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
   transition: transform 0.3s, opacity 0.3s;
   -webkit-transform: translate3d(0, -15px, 0);
   transform: translate3d(0, -15px, 0);
+    font-family: "Source Sans Pro", sans-serif;
+     letter-spacing: 3px;
 }
 .work .desc span {
   display: block;
@@ -1157,7 +1160,7 @@ input[type="text"] {
 
 #fh5co-offcanvas {
   position: absolute;
-  z-index: 1901;
+  z-index: 20004;
   width: 270px;
   background: black;
   top: 0;
@@ -1210,6 +1213,7 @@ input[type="text"] {
 #fh5co-offcanvas ul li.offcanvas-has-dropdown > a {
   display: block;
   position: relative;
+    z-index: 3000;
 }
 #fh5co-offcanvas ul li.offcanvas-has-dropdown > a:after {
   position: absolute;
@@ -1230,6 +1234,8 @@ input[type="text"] {
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
+        z-index: 3000;
+
 }
 #fh5co-offcanvas ul li.offcanvas-has-dropdown.active a:after {
   -webkit-transform: rotate(-180deg);
@@ -1363,7 +1369,7 @@ input[type="text"] {
   position: absolute;
   right: 0px;
   top: 65px;
-  z-index: 21;
+  z-index: 2000;
   padding: 6px 0 0 0;
   display: block;
   margin: 0 auto;
