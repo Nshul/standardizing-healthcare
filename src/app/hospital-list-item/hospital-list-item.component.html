@@ -34,27 +34,27 @@
 
     <div class="text-center pagination-centered animate-box">
       <div class="datesrow row">
-        <div class="dates col-md-2" (click)='onSelect("mon")'>
+        <div class="dates col-md-2" (click)='onSelect("mon",10)'>
           <span class="date">10</span>
           <span class="day">Mon</span>
         </div>
-        <div class="dates col-md-2" (click)='onSelect("tue")'>
+        <div class="dates col-md-2" (click)='onSelect("tue",11)'>
           <span class="date">11</span>
           <span class="day">Tue</span>
         </div>
-        <div class="dates col-md-2" (click)='onSelect("wed")'>
+        <div class="dates col-md-2" (click)='onSelect("wed",12)'>
           <span class="date">12</span>
           <span class="day">Wed</span>
         </div>
-        <div class="dates col-md-2" (click)='onSelect("thurs")'>
+        <div class="dates col-md-2" (click)='onSelect("thurs",13)'>
           <span class="date">13</span>
           <span class="day">Thurs</span>
         </div>
-        <div class="dates col-md-2" (click)='onSelect("fri")'>
+        <div class="dates col-md-2" (click)='onSelect("fri",14)'>
           <span class="date">14</span>
           <span class="day">Fri</span>
         </div>
-        <div class="dates col-md-2" (click)='onSelect("sat")'>
+        <div class="dates col-md-2" (click)='onSelect("sat",15)'>
           <span class="date">15</span>
           <span class="day">Sat</span>
         </div>
@@ -62,7 +62,7 @@
       <div class="displayappointments" *ngIf='selectedSchedule'>
         <ul class="appointments">
         <li *ngFor="let appoint of selectedSchedule">
-          <span>{{appoint}}</span>
+          <span (click)="bookAppoinment(appoint)">{{appoint}}</span>
         </li>
       </ul>
       </div>
