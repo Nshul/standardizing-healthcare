@@ -11,24 +11,19 @@ export class AppointmentPrescriptionComponent implements OnInit {
   prescriptionDate: string = '21-04-2018';
   prescribedMedicine: MedicineList[] = [
     {
-      medicine: 'Medicine1',
-      dosage: '2 times a day',
-      comment: 'take for 3 days'
-    },
-    {
-      medicine: 'Medicine2',
-      dosage: '3 times a day',
-      comment: 'take for 2 days'
-    },
-    {
-      medicine: 'Medicine3',
+      medicine: 'combiflam',
       dosage: '1 times a day',
+      comment: 'take for 1 day'
+    },
+    {
+      medicine: 'zinetac',
+      dosage: '2 times a day',
       comment: 'take for 2 days'
     },
     {
-      medicine: 'Medicine4',
-      dosage: '2 times a day',
-      comment: 'take for 6 days'
+      medicine: 'crocin',
+      dosage: '3 times a day',
+      comment: 'take for 3 days'
     }
   ];
   doctorName: string = 'Mr Goofy Patil';
