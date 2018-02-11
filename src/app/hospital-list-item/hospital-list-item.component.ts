@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as firebase from 'firebase';
 import { AsyncPipe } from '@angular/common';
-declare var $ : any;
+declare var $: any;
 
 @Component({
   selector: 'app-hospital-list-item',
@@ -10,14 +10,14 @@ declare var $ : any;
   styleUrls: ['./hospital-list-item.component.css']
 })
 export class HospitalListItemComponent implements OnInit, AfterViewInit {
-  service: string = "";
-  hospitalkey: string = "";
-  hospitalpincode: string = "";
-  selectedHospital : any;
+  service: string = '';
+  hospitalkey: string = '';
+  hospitalpincode: string = '';
+  selectedHospital: any;
   selectedSchedule: string[];
   selectedDate: string;
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     $.getScript('../../../assets/js/main.js');
     $.getScript('../../../assets/js/bootstrap.min.js');
   }
@@ -34,30 +34,31 @@ export class HospitalListItemComponent implements OnInit, AfterViewInit {
   // hospitalName: string = 'Goofed Up Hospital';
 
   hospitalAddress: string = 'DLF Phase-5, Meerut';
-  
+
   avg_user_rating: number = 3.5;
-  ReviewList : ReviewItem[] = [
-  { user:'Apar',
-  date:'February 11, 2018',
-  title:'Lol nice',
-  review:'very nice hospital. affordable and efficient',
-  rating:4
-  
-  },{ user:'Archit',
-  date:'February 11, 2018',
-  title:'Lol ',
-  review:'very nice hospital. affordable and efficient',  
-  rating:3
-  
-  },{ user:'Anshul',
-  date:'February 10, 2018',
-  title:' nice',
-  review:'very nice hospital. affordable and efficient',
-  rating:2
-  
-  },
-  ]
-  
+  ReviewList: ReviewItem[] = [
+    {
+      user: 'Apar',
+      date: 'February 11, 2018',
+      title: 'Lol nice',
+      review: 'very nice hospital. affordable and efficient',
+      rating: 4
+    },
+    {
+      user: 'Archit',
+      date: 'February 11, 2018',
+      title: 'Lol ',
+      review: 'very nice hospital. affordable and efficient',
+      rating: 3
+    },
+    {
+      user: 'Anshul',
+      date: 'February 10, 2018',
+      title: ' nice',
+      review: 'very nice hospital. affordable and efficient',
+      rating: 2
+    }
+  ];
 
   // hospitalAddress: string = 'DLF Phase-5, Meerut';
 
@@ -65,21 +66,31 @@ export class HospitalListItemComponent implements OnInit, AfterViewInit {
 
   onSelect(day, date): void {
     // console.log(this.selectedHospital[day]);
-    this.selectedSchedule = [this.selectedHospital.schedule[day].time_start,this.selectedHospital.schedule[day].time_end];
+    this.selectedSchedule = [
+      this.selectedHospital.schedule[day].time_start,
+      this.selectedHospital.schedule[day].time_end
+    ];
     this.selectedDate = date;
   }
 
   bookAppoinment(appoint): void {
     const UID = firebase.auth().currentUser.uid;
-    firebase.database().ref(`appointments/${this.hospitalkey}/${this.service}/${this.selectedDate}/requested`)
-    .push({
-      timeslot: appoint,
-      status: -1,
-      userid: UID
-    });
+    const DATE = this.selectedDate + '/02/2018';
+    firebase
+      .database()
+      .ref(
+        `appointments/${this.hospitalkey}/${this.service}/${
+          DATE
+        }/requested`
+      )
+      .push({
+        timeslot: appoint,
+        status: -1,
+        userid: UID
+      });
   }
 
-  constructor(private router: Router,private activatedRoute: ActivatedRoute) {}
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     this.service = this.activatedRoute.snapshot.paramMap.get('service');
@@ -91,20 +102,24 @@ export class HospitalListItemComponent implements OnInit, AfterViewInit {
     this.hospitalpincode = this.activatedRoute.snapshot.paramMap.get('pincode');
     console.log('Hospital Pin Code is now : ' + this.hospitalpincode);
 
-    firebase.database().ref(`services/${this.service}/${this.hospitalpincode}/${this.hospitalkey}`)
-    .on( "value", (snapshot) => {
-      let temp: any = snapshot.val();
+    firebase
+      .database()
+      .ref(
+        `services/${this.service}/${this.hospitalpincode}/${this.hospitalkey}`
+      )
+      .on('value', snapshot => {
+        let temp: any = snapshot.val();
         console.log(temp);
         this.selectedHospital = temp;
         // console.log(this.hospitals);
-    });
+      });
   }
 }
 
 class ReviewItem {
-user:string;
-date:string;
-title:string;
-review:string;
-rating:number;
+  user: string;
+  date: string;
+  title: string;
+  review: string;
+  rating: number;
 }
