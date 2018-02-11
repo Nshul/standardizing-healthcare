@@ -14,6 +14,15 @@ declare var $: any;
 export class HospitalsignupComponent implements OnInit, AfterViewInit {
 
   @ViewChild('f') form : NgForm;
+  @ViewChild('f1') form1: NgForm;
+
+
+  onLoginSubmit(f1 : NgForm){
+    const email = f1.value.email;
+    const pass= f1.value.pass;
+    this.authService.signin(email,pass);
+  }
+
   errormessage : string ;
 
   services : string[] = [
@@ -41,11 +50,14 @@ export class HospitalsignupComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit(f : NgForm){
-    const { email,pass,name,contact,address,pincode,services,tier } = f.value;
+    const { email,pass,name,contact,address,pincode,services,latitude,longitude,tier } = f.value;
     console.log(f.value);
-    this.authService.signup(email,pass,name,contact,address,pincode,services,tier);
+    const geolocation = {latitude, longitude}
+    this.authService.signup(email,pass,name,contact,address,pincode,services,tier,geolocation);
     
   }
+
+
 
   ngAfterViewInit(){
     $.getScript('../../../assets/js/main.js')

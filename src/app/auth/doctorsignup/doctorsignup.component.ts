@@ -13,6 +13,7 @@ declare var $: any;
 export class DoctorsignupComponent implements OnInit, AfterViewInit {
 
   @ViewChild('f') form : NgForm;
+  @ViewChild('f1') form1: NgForm;
   errormessage : string ;
   specialities : string[] = [
         'Anatomic Pathology',
@@ -49,6 +50,12 @@ export class DoctorsignupComponent implements OnInit, AfterViewInit {
     console.log(f.value);
     this.authService.signup(email, pass, fname, lname, dob, contact, hemail,qualificatios, specialities);
     
+  }
+
+  onLoginSubmit(f1 : NgForm){
+    const email = f1.value.email;
+    const pass= f1.value.pass;
+    this.authService.signin(email,pass);
   }
 
   ngAfterViewInit(){

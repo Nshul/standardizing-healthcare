@@ -4,44 +4,18 @@
     <div class="blog-entry fh5co-light-grey">
       <div class="row">
           <div class="col-md-10 animate-box">
-            <div class="slider-text-inner">
-              <h1>{{hospitalName}}</h1>
-              <h2>{{hospitalAddress}}</h2>
+            <div class="slider-text-inner" >
+              <h1>{{selectedHospital.name}}</h1>
+              <h2>{{selectedHospital.address}}</h2>
+              <h2>{{selectedHospital.rating}}</h2>
               <p><a class="btn btn-primary btn-demo" href="#"> Read Reviews </a> <a class="btn btn-primary btn-learn">See More Photos</a></p>
             </div>
           </div>
           <div class="col-md-2 animate-box">
             <div class="slider-text-inner">
-              <h1>${{servicePrice}}</h1>
+              <h1>${{selectedHospital.price}}</h1>
             </div>
           </div>
-        <!-- <div class="col-md-12 animate-box">
-          <a href="#" class="blog-post">
-            <span class="img" style="background-image: url(../../assets/images/blog-2.jpg);"></span>
-            <div class="desc">
-              <h3>26 Best Education WordPress Themes 2017 You Need To See</h3>
-              <span class="cat">Collection</span>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-12 animate-box">
-          <a href="#" class="blog-post">
-            <span class="img" style="background-image: url(../../assets/images/blog-1.jpg);"></span>
-            <div class="desc">
-              <h3>16 Outstanding Photography WordPress Themes You Must See</h3>
-              <span class="cat">Collection</span>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-12 animate-box">
-          <a href="#" class="blog-post">
-            <span class="img" style="background-image: url(../../assets/images/blog-3.jpg);"></span>
-            <div class="desc">
-              <h3>16 Outstanding Photography WordPress Themes You Must See</h3>
-              <span class="cat">Collection</span>
-            </div>
-          </a>
-        </div> -->
       </div>
     </div>
   </div>
@@ -60,27 +34,27 @@
 
     <div class="text-center pagination-centered animate-box">
       <div class="datesrow row">
-        <div class="dates col-md-2" (click)='onSelect("Mon")'>
+        <div class="dates col-md-2" (click)='onSelect("mon")'>
           <span class="date">10</span>
           <span class="day">Mon</span>
         </div>
-        <div class="dates col-md-2" (click)='onSelect("Tue")'>
+        <div class="dates col-md-2" (click)='onSelect("tue")'>
           <span class="date">11</span>
           <span class="day">Tue</span>
         </div>
-        <div class="dates col-md-2" (click)='onSelect("Wed")'>
+        <div class="dates col-md-2" (click)='onSelect("wed")'>
           <span class="date">12</span>
           <span class="day">Wed</span>
         </div>
-        <div class="dates col-md-2" (click)='onSelect("Thurs")'>
+        <div class="dates col-md-2" (click)='onSelect("thurs")'>
           <span class="date">13</span>
           <span class="day">Thurs</span>
         </div>
-        <div class="dates col-md-2" (click)='onSelect("Fri")'>
+        <div class="dates col-md-2" (click)='onSelect("fri")'>
           <span class="date">14</span>
           <span class="day">Fri</span>
         </div>
-        <div class="dates col-md-2" (click)='onSelect("Sat")'>
+        <div class="dates col-md-2" (click)='onSelect("sat")'>
           <span class="date">15</span>
           <span class="day">Sat</span>
         </div>

@@ -1,23 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import * as firebase from 'firebase';
+import { AsyncPipe } from '@angular/common';
+declare var $ : any;
 
 @Component({
   selector: 'app-hospital-list-item',
   templateUrl: './hospital-list-item.component.html',
   styleUrls: ['./hospital-list-item.component.css']
 })
-export class HospitalListItemComponent implements OnInit {
-  selectedSchedule: any;
+export class HospitalListItemComponent implements OnInit, AfterViewInit {
+  service: string = "";
+  hospitalkey: string = "";
+  hospitalpincode: string = "";
+  selectedHospital : any;
+  selectedSchedule: string[];
 
-  setSchedule: any = {
-    Mon: ['10:00', '10:15', '10:30', '10:45', '11:00'],
-    Tue: ['10:30', '10:45', '11:00', '11:15', '11:30'],
-    Wed: ['11:30', '11:45', '12:00', '12:15', '12:30'],
-    Thurs: ['1:30', '1:45', '2:00', '2:15', '2:30'],
-    Fri: ['7:30', '7:45', '8:00', '8:15', '8:30'],
-    Sat: ['8:30', '8:45', '9:00', '9:15', '9:30']
-  };
+  ngAfterViewInit(){
+    $.getScript('../../../assets/js/main.js');
+    $.getScript('../../../assets/js/bootstrap.min.js');
+  }
 
-  hospitalName: string = 'Goofed Up Hospital';
+  // setSchedule: any = {
+  //   Mon: ['10:00', '10:15', '10:30', '10:45', '11:00'],
+  //   Tue: ['10:30', '10:45', '11:00', '11:15', '11:30'],
+  //   Wed: ['11:30', '11:45', '12:00', '12:15', '12:30'],
+  //   Thurs: ['1:30', '1:45', '2:00', '2:15', '2:30'],
+  //   Fri: ['7:30', '7:45', '8:00', '8:15', '8:30'],
+  //   Sat: ['8:30', '8:45', '9:00', '9:15', '9:30']
+  // };
+
+  // hospitalName: string = 'Goofed Up Hospital';
 
   hospitalAddress: string = 'DLF Phase-5, Meerut';
   
@@ -44,17 +57,36 @@ export class HospitalListItemComponent implements OnInit {
   },
   ]
   
-  
 
-  servicePrice: number = 800;
+  // hospitalAddress: string = 'DLF Phase-5, Meerut';
 
-  onSelect(day: string): void {
-    this.selectedSchedule = this.setSchedule[day];
+  // servicePrice: number = 800;
+
+  onSelect(day): void {
+    // console.log(this.selectedHospital[day]);
+    this.selectedSchedule = [this.selectedHospital.schedule[day].time_start,this.selectedHospital.schedule[day].time_end];
   }
 
-  constructor() {}
+  constructor(private router: Router,private activatedRoute: ActivatedRoute) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.service = this.activatedRoute.snapshot.paramMap.get('service');
+    console.log('Service is now : ' + this.service);
+
+    this.hospitalkey = this.activatedRoute.snapshot.paramMap.get('hospitalid');
+    console.log('Hospital ID is now : ' + this.hospitalkey);
+
+    this.hospitalpincode = this.activatedRoute.snapshot.paramMap.get('pincode');
+    console.log('Hospital Pin Code is now : ' + this.hospitalpincode);
+
+    firebase.database().ref(`services/${this.service}/${this.hospitalpincode}/${this.hospitalkey}`)
+    .on( "value", (snapshot) => {
+      let temp: any = snapshot.val();
+        console.log(temp);
+        this.selectedHospital = temp;
+        // console.log(this.hospitals);
+    });
+  }
 }
 
 class ReviewItem {
