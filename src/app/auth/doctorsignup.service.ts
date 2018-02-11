@@ -13,9 +13,9 @@ export class DoctorsignupService {
 
   signup(email,pass,fname,lname,dob,contact,hemail,qualificatios, specialities){
       firebase.auth().createUserWithEmailAndPassword(email,pass)
-      .then((patient) =>{
-        console.log(patient);
-        firebase.database().ref(`/patients/${patient.uid}`)
+      .then((doctor) =>{
+        console.log(doctor);
+        firebase.database().ref(`/doctors/${doctor.uid}`)
         .set({ email,pass,fname,lname,dob,contact,hemail,qualificatios, specialities });
         // .then(() => { console.log("done"); }).catch( err => { console.log(err); });
         this.signin(email, pass);
@@ -64,7 +64,7 @@ export class DoctorsignupService {
   logout(){
   	firebase.auth().signOut();
   	this.token = null;
-    this.router.navigate(['/recipes'],{relativeTo : this.activatedRoute});
+    
   	
   }
 

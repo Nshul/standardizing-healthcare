@@ -11,7 +11,9 @@ import { DoctorPrescriptionComponent } from './doctor-prescription/doctor-prescr
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { HospitalListComponent } from './hospital-list/hospital-list.component';
-
+import { HospitalListItemComponent } from './hospital-list-item/hospital-list-item.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { HospitalLandingpageComponent } from './hospital-landingpage/hospital-landingpage.component';
 
 const routercons : Routes = [
   {path : '', redirectTo: '/home', pathMatch: 'full' },
@@ -24,6 +26,12 @@ const routercons : Routes = [
   {path : 'about', component : AboutComponent},
   {path : 'contact', component : ContactComponent},
   {path : 'hospital-list/:service', component : HospitalListComponent},
+  {path : ':service/:pincode/:hospitalid', component: HospitalListItemComponent},
+  {path : ':service/:pincode/:hospitalid', component: HospitalListItemComponent},
+  {path : 'userprofile', component: UserProfileComponent},
+  {path : 'logout', redirectTo: '/home'},
+  {path : 'hospitallanding', component: HospitalLandingpageComponent },
+  
 ];
 
 

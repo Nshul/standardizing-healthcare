@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import * as firebase from 'firebase';
+import { AsyncPipe } from '@angular/common';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 
 declare var $: any;
 declare var google: any;
@@ -12,6 +16,8 @@ declare var google: any;
 export class HospitalListComponent implements OnInit {
 
   service : string = "";
+  pincode = "110078";
+  hospitals : { geolocation: { latitude : string, longitude : string}, name:string, price: number, rating: number, schedule: any}[] = [];
 
   hospitalName: string = 'Goofed Up Hospital';
   hospitalGeoLocation: Location = {
@@ -31,6 +37,27 @@ export class HospitalListComponent implements OnInit {
       'http://maps.google.com/maps/api/js?sensor=true&libraries=geometry&key=AIzaSyDLSKfIhswQh6FzPy1-vXvIO4O8pFrAbFo'
     );
 
+    
+
+    this.service = this.activatedRoute.snapshot.paramMap.get('service');
+    console.log('Service is now : ' + this.service);
+    firebase.database().ref(`services/${this.service}/${this.pincode}`)
+    .on( "value", (snapshot) => {
+      let temp: any = snapshot.val();
+        console.log(temp);
+        for(let i in temp){
+          temp[i].key = i;
+          this.hospitals.push(temp[i])
+        }
+        // console.log(this.hospitals);
+    });
+
+
+
+  }
+
+
+  dist(lat: number,lon:number) : Observable<string> {
     if (window.navigator && window.navigator.geolocation) {
       window.navigator.geolocation.getCurrentPosition(
         position => {
@@ -40,17 +67,23 @@ export class HospitalListComponent implements OnInit {
             position.coords.latitude,
             position.coords.longitude
           );
+          // var promise=[];
           let to = new google.maps.LatLng(
-            this.hospitalGeoLocation.latitude,
-            this.hospitalGeoLocation.longitude
+            lat,lon
           );
-          let dist = google.maps.geometry.spherical.computeDistanceBetween(
-            from,
-            to
-          );
-          console.log('dist:', (dist / 1000).toFixed(3));
-          this.distanceBetween = (dist / 1000).toFixed(3);
-        },
+          return of(
+            google.maps.geometry.spherical.computeDistanceBetween(
+              from,
+              to
+            ).toFixed(3))
+          // Promise.all(promise).then((val)=>{
+            // console.log("Yo baby yo")
+            // console.log(val);
+            // return (val[0]/1000).toFixed(3);
+          },
+          // console.log('dist:', (this.distanceBetween / 1000).toFixed(3));
+          // this.distanceBetween = (this.distanceBetween / 1000).toFixed(3);
+       
         error => {
           switch (error.code) {
             case 1:
@@ -67,13 +100,14 @@ export class HospitalListComponent implements OnInit {
       );
     }
 
-    this.service = this.activatedRoute.snapshot.paramMap.get('service');
-    console.log('Service is now : ' + this.service);
-    // firebase.database().ref(`services/`+this.service)
-
-
 
   }
+
+  showDetails(key : string){
+    this.router.navigate(['../../',this.service, this.pincode, key],{relativeTo : this.activatedRoute});
+  }
+
+
 }
 
 class Location {

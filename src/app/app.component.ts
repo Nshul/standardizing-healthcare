@@ -2,6 +2,11 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 import * as firebase from 'firebase';
 import { AuthService } from './auth/auth.service';
+import { DoctorsignupService } from './auth/doctorsignup.service';
+import { HospitalsignupService } from './auth/hospitalsignup.service';
+
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 declare var $: any;
 
@@ -13,11 +18,24 @@ declare var $: any;
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'app';
 
-  constructor(private authService: AuthService) {}
+  isAnyUserLoggedIn(){
+    if(firebase.auth().currentUser == null){
+      // console.log(firebase.auth().currentUser.uid);
+      return false;
+    }
+    return true;
+  }
+
+  constructor(private router: Router,private activatedRoute: ActivatedRoute,private authService: AuthService,private doctorService: DoctorsignupService, private hospitalService: HospitalsignupService) {}
 
   validated: boolean = false;
 
-  logout() {}
+  logout() {
+    this.authService.logout();
+    this.doctorService.logout();
+    this.hospitalService.logout();
+    this.router.navigate(['../home'],{relativeTo : this.activatedRoute});
+  }
 
   ngAfterViewInit() {
     $.getScript('../assets/js/main.js');

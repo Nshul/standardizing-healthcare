@@ -29,7 +29,7 @@ export class AuthService {
       firebase.auth().signInWithEmailAndPassword(email,pass)
       .then(
       	(response) => {
-      		this.router.navigate(['/recipes'],{relativeTo : this.activatedRoute});
+      		this.router.navigate(['../'],{relativeTo : this.activatedRoute});
       		console.log(response)
             firebase.auth().currentUser.getToken()
             .then(
@@ -62,7 +62,7 @@ export class AuthService {
   logout(){
   	firebase.auth().signOut();
   	this.token = null;
-    this.router.navigate(['/recipes'],{relativeTo : this.activatedRoute});
+   
   	
   }
 

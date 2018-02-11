@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   service : string;
 
   services : string[] = [
-      'X-Ray (x_ray)',           
+      'x_ray',           
       'Magnetic Resonance Imaging (mri)',      
       'CT Scan (ct_scan)',          
       'PET Scan (pet_scan)',

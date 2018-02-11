@@ -3,50 +3,17 @@
     <div class="text-center pagination-centered">
         <div class="row">
         
-        <div class="col-md-4 col-xs-12">
+        <div class="col-md-4 col-xs-12" *ngFor="let hospital of hospitals">
           <div class="card card-01">
           <img class="card-img-top" src="https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?h=350&auto=compress&cs=tinysrgb" alt="Card image cap">
-          <div class="card-body">
-            <span class="badge-box"><i class="fa fa-star"></i></span>
-            <h4 class="card-title">{{hospitalName}}</h4>
-            <p class="card-text"><small>{{hospitalAddress}}</small></p>
-              <p class="card-text"><small>{{distanceBetween}} kM | {{hospitalRating}}</small></p>
-            <a href="#" class="btn btn-default text-uppercase">Rs {{serviceCost}}</a>
+            <div class="card-body">
+              <span class="badge-box"><i class="fa fa-star"></i></span>
+              <h4 class="card-title">{{hospital.name}}</h4>
+              <p class="card-text"><small>{{hospital.address}}</small></p>
+                <p class="card-text"><small>{{ dist(hospital.geolocation.latitude, hospital.geolocation.longitude) | async }} kM | {{hospital.rating}}</small></p>
+              <a (click)="showDetails(hospital.key)" class="btn btn-default text-uppercase">Rs {{hospital.price}}</a>
+            </div>
           </div>
-        </div>
-        </div>
-       
-            
-            <div class="col-md-4 col-xs-12">
-          <div class="card card-01">
-          <img class="card-img-top" src="https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?h=350&auto=compress&cs=tinysrgb" alt="Card image cap">
-          <div class="card-body">
-            <span class="badge-box"><i class="fa fa-star-half"></i></span>
-            <h4 class="card-title">Hospital Name</h4>
-            <p class="card-text"><small>Address</small></p>
-              <p class="card-text"><small>Distance | Rating</small></p>
-            <a href="#" class="btn btn-default text-uppercase">Cost</a>
-          </div>
-        </div>
-        </div>
-        <div class="col-md-4">
-           
-        </div>
-            
-            <div class="col-md-4 col-xs-12">
-          <div class="card card-01">
-          <img class="card-img-top" src="https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?h=350&auto=compress&cs=tinysrgb" alt="Card image cap">
-          <div class="card-body">
-            <span class="badge-box"><i class="fa fa-star-o"></i></span>
-            <h4 class="card-title">Hospital Name</h4>
-            <p class="card-text"><small>Address</small></p>
-              <p class="card-text"><small>Distance | Rating</small></p>
-            <a href="#" class="btn btn-default text-uppercase">Cost</a>
-          </div>
-        </div>
-        </div>
-        <div class="col-md-4">
-           
         </div>
             
         </div>

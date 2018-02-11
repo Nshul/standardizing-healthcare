@@ -30,7 +30,7 @@ export class HospitalsignupService {
       firebase.auth().signInWithEmailAndPassword(email,pass)
       .then(
       	(response) => {
-      		this.router.navigate(['/'],{relativeTo : this.activatedRoute});
+      		this.router.navigate(['../hospitallanding'],{relativeTo : this.activatedRoute});
       		console.log(response)
             firebase.auth().currentUser.getToken()
             .then(
@@ -63,7 +63,7 @@ export class HospitalsignupService {
   logout(){
   	firebase.auth().signOut();
   	this.token = null;
-    this.router.navigate(['/recipes'],{relativeTo : this.activatedRoute});
+    
   	
   }
 
