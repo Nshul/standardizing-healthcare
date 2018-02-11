@@ -57,9 +57,10 @@ export class HospitalLandingpageComponent implements OnInit {
             console.log(j);
             const service_type = i;
             const date = j;
-            const timeslot;
-            const appointmentKey;
-            for (let k in temp1[i][j].requested) {
+            let timeslot;
+            let appointmentKey;
+            let k;
+            for (k in temp1[i][j].requested) {
               console.log('k:');
               console.log(k);
               timeslot = temp1[i][j].requested[k].timeslot;
