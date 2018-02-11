@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as firebase from 'firebase';
 
-declare var $ : any;
+declare var $: any;
 
 @Component({
   selector: 'app-user-profile',
@@ -11,7 +11,7 @@ declare var $ : any;
 export class UserProfileComponent implements OnInit, AfterViewInit {
   selectedPatient: any;
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     $.getScript('../../../assets/js/main.js');
     $.getScript('../../../assets/js/bootstrap.min.js');
   }
@@ -37,11 +37,15 @@ export class UserProfileComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     const UID = firebase.auth().currentUser.uid;
-    firebase.database().ref(`patients/${UID}`)
-    .on("value", snapshot => {
-      const f = snapshot.val();
-      this.selectedPatient = f;
-    })
+    console.log('Found User:', UID);
+    firebase
+      .database()
+      .ref(`patients/${UID}`)
+      .on('value', snapshot => {
+        const f = snapshot.val();
+        console.log('inside snapshot f:', f);
+        this.selectedPatient = f;
+      });
   }
 }
 
