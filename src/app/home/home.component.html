@@ -85,7 +85,7 @@
 </form>
 
             <div class="row">
-                <ul class="ch-grid">
+                <ul class="ch-grid" [routerLink]="['/hospital-list/x_ray']">
 	<li>
 		<div class="ch-item ch-img-1">
 			<div class="ch-info">
@@ -167,7 +167,7 @@
 					</a>
 				</div>
 				<div class="col-md-6 text-center animate-box">
-					<a class="work" style="background-image: url(../../assets/images/portfolio-3.jpg);">
+					<a [routerLink]="['/currentpres']" class="work" style="background-image: url(../../assets/images/portfolio-3.jpg);">
 						<div class="desc">
 							<h3>CURRENT PRESCRIPTIONS</h3>
 							<span></span>
@@ -176,7 +176,7 @@
 				</div>
                 
                 <div class="col-md-6 text-center animate-box">
-					<a class="work" style="background-image: url(../../assets/images/portfolio-4.jpg);">
+					<a [routerLink]="['/healthdata']" class="work" style="background-image: url(../../assets/images/portfolio-4.jpg);">
 						<div class="desc">
 							<h3>HEALTH DATA & HISTORY</h3>
 							<span></span>

@@ -15,6 +15,8 @@ import { HospitalListItemComponent } from './hospital-list-item/hospital-list-it
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { HospitalLandingpageComponent } from './hospital-landingpage/hospital-landingpage.component';
 import { CommonissueComponent } from './commonissue/commonissue.component';
+import { HealthDataComponent } from './health-data/health-data.component';
+import { AppointmentPrescriptionComponent } from './appointment-prescription/appointment-prescription.component';
 
 const routercons : Routes = [
   {path : '', redirectTo: '/home', pathMatch: 'full' },
@@ -33,6 +35,8 @@ const routercons : Routes = [
   {path : 'logout', redirectTo: '/home'},
   {path : 'hospitallanding', component: HospitalLandingpageComponent },
   {path : 'commonissue', component: CommonissueComponent },
+  {path : 'healthdata', component: HealthDataComponent },
+  {path : 'currentpres', component: AppointmentPrescriptionComponent },
   
 ];
 

@@ -2,6 +2,8 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as firebase from 'firebase';
 import { AsyncPipe } from '@angular/common';
+// import { HttpClient, HttpParams } from '@angular/common/http';
+
 declare var $: any;
 
 @Component({
@@ -21,6 +23,12 @@ export class HospitalListItemComponent implements OnInit, AfterViewInit {
   doctorId : string;
   patientId : string;
   patientstatus : number;
+
+  review1 : string = "Best center in South Delhi for hair services. I had some issues regarding my hair, like hair loss and receding hair line. Then one day one of my friend recommended me about Dr Suneet Soni and his center Medispa hair transplant clinic. I visited there and followed the Dr Suneet Soni's instructions. He suggested me for FUT technique for hair transplant, so I underwent for hair transplant by Dr Suneet Soni. It was really amazing experienced. I was really scared of the procedure but there was no pain and discomfort at all. Medispa staff was so supportive and always ready to help. It has been 6 months of my procedure, and I am so grateful to Dr Suneet Soni because when I see myself in the mirror I feel so good and confident. Thank you Dr Suneet Soni."; 
+  review2 : string ="I am Riya singh, I am suffering from infertility problem and I had no baby, Dr. Archana Bajaj made my dream of having a baby come true by the best Surrogacy treatments. Thanks to Dr Archana Bajaj. "; 
+  review3 : string = "Poor service, No medical facility available here. Avoid this hospital to save your patient. They killed my mother.";
+
+  senti : string[] = [];
 
   ngAfterViewInit() {
     $.getScript('../../../assets/js/main.js');
@@ -119,25 +127,59 @@ export class HospitalListItemComponent implements OnInit, AfterViewInit {
         // console.log(this.hospitals);
       });
 
-      
+      // this.http.post('http://text-processing.com/api/sentiment/', {
+      //   params: new HttpParams().set('text',this.review1)
+      // })
+      // .subscribe(
+      //   response => {
+      //     console.log(response);
+        // });
+$.post('http://text-processing.com/api/sentiment/',{text: this.review1},(data)=>{
+          console.log(data);
+          this.senti.push(data.probability.pos);
+          $.post('http://text-processing.com/api/sentiment/',{text: this.review2},(data)=>{
+          console.log(data);
+          this.senti.push(data.probability.pos);
+          $.post('http://text-processing.com/api/sentiment/',{text: this.review3},(data)=>{
+          console.log(data);
+          this.senti.push(data.probability.pos);
+          // data.probability;
+        })
+          // data.probability;
+        })
+          // data.probability;
+        });
+
+
+
+
+
+        
   }
 
-  bookAppoinment(appoint): void {
-    const UID = firebase.auth().currentUser.uid;
-    const DATE = this.selectedDate + '-02-2018';
-    firebase
-      .database()
-      .ref(
-        `appointmentsdoctor/${this.hospitalkey}/${this.service}/${
-          DATE
-        }/requested`
-      )
-      .push({
-        timeslot: appoint,
-        status: -1,
-        userid: UID
-      });
-  }
+  // getvalueNLP(pgdata: string) {
+  //   $.post('http://text-processing.com/api/sentiment/',{text: pgdata},(data)=>{
+  //         console.log(data);
+  //         data.probability;
+  //       })
+  // }
+
+  // bookAppoinment(appoint): void {
+  //   const UID = firebase.auth().currentUser.uid;
+  //   const DATE = this.selectedDate + '-02-2018';
+  //   firebase
+  //     .database()
+  //     .ref(
+  //       `appointmentsdoctor/${this.hospitalkey}/${this.service}/${
+  //         DATE
+  //       }/requested`
+  //     )
+  //     .push({
+  //       timeslot: appoint,
+  //       status: -1,
+  //       userid: UID
+  //     });
+  // }
 
 }
 
