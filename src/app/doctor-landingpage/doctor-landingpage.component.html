@@ -2,6 +2,7 @@
 <div id="fh5co-blog" class="blog-flex">
 			
 			<div class="blog-entry fh5co-light-grey">
+                <h1>Swasthya Doctor Portal</h1>
 				<div class="row animate-box">
 					<div class="col-md-12">
 						<h2>Recent Appointments</h2>
@@ -24,7 +25,9 @@
 
 			<div class="blog-entry fh5co-light-grey">
 
-				<p>Selected Appointment: {{ appointmentId }} </p>
+				<h2>Selected Appointment: {{ appointmentId }} </h2>
+                <p>Enter the number of medications you want to prescribe in the appointment</p>
+                
 				
 					<input type="number" placeholder="Number of Medicines" class="form-control" [(ngModel)]="no_of_medicines">
 				<button style="width: 100%" (click)="setNum()" class="btn btn-success">Set</button>
