@@ -10,7 +10,7 @@
               <span class="badge-box"><i class="fa fa-star"></i></span>
               <h4 class="card-title">{{hospital.name}}</h4>
               <p class="card-text"><small>{{hospital.address}}</small></p>
-                <p class="card-text"><small>{{ dist(hospital.geolocation.latitude, hospital.geolocation.longitude) | async }} kM | {{hospital.rating}}</small></p>
+                <p class="card-text"><small>{{ dist(hospital.geolocation.latitude, hospital.geolocation.longitude) }} kM | {{hospital.rating}}</small></p>
               <a (click)="showDetails(hospital.key)" class="btn btn-default text-uppercase">Rs {{hospital.price}}</a>
             </div>
           </div>
