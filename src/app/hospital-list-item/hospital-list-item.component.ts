@@ -15,6 +15,7 @@ export class HospitalListItemComponent implements OnInit, AfterViewInit {
   hospitalpincode: string = "";
   selectedHospital : any;
   selectedSchedule: string[];
+  selectedDate: string;
 
   ngAfterViewInit(){
     $.getScript('../../../assets/js/main.js');
@@ -62,9 +63,20 @@ export class HospitalListItemComponent implements OnInit, AfterViewInit {
 
   // servicePrice: number = 800;
 
-  onSelect(day): void {
+  onSelect(day, date): void {
     // console.log(this.selectedHospital[day]);
     this.selectedSchedule = [this.selectedHospital.schedule[day].time_start,this.selectedHospital.schedule[day].time_end];
+    this.selectedDate = date;
+  }
+
+  bookAppoinment(appoint): void {
+    const UID = firebase.auth().currentUser.uid;
+    firebase.database().ref(`appointments/${this.hospitalkey}/${this.service}/${this.selectedDate}/requested`)
+    .push({
+      timeslot: appoint,
+      status: -1,
+      userid: UID
+    });
   }
 
   constructor(private router: Router,private activatedRoute: ActivatedRoute) {}

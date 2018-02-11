@@ -13,11 +13,14 @@ export class AuthService {
   signup(email : string, pass: string, fname, lname, dob, contact, insurance){
       firebase.auth().createUserWithEmailAndPassword(email,pass)
       .then((patient) =>{
+        const h_ins = insurance;
+        const wallet_bl = 200;
+        const name = fname + ' ' + lname;
         console.log(patient);
         firebase.database().ref(`/patients/${patient.uid}`)
-        .set({ fname, lname, dob, contact, insurance});
+        .set({ name, dob, contact, h_ins, email, wallet_bl, insurance});
         // .then(() => { console.log("done"); }).catch( err => { console.log(err); });
-
+        this.router.navigate(['../'],{relativeTo : this.activatedRoute});
       })
       .catch(
       	error => { console.log(error); this.errormessage.next(error.message); }
