@@ -31,6 +31,7 @@ import { AppointmentPrescriptionComponent } from './appointment-prescription/app
 import { HealthDataComponent } from './health-data/health-data.component';
 import { HospitalLandingpageComponent } from './hospital-landingpage/hospital-landingpage.component';
 import { ReviewFormComponent } from './review-form/review-form.component';
+import { CommonissueComponent } from './commonissue/commonissue.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ReviewFormComponent } from './review-form/review-form.component';
     HealthDataComponent,
     HospitalLandingpageComponent,
     ReviewFormComponent,
+    CommonissueComponent,
   ],
   imports: [
     BrowserModule,

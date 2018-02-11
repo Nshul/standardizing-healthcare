@@ -16,6 +16,11 @@ export class HospitalListItemComponent implements OnInit, AfterViewInit {
   selectedHospital: any;
   selectedSchedule: string[];
   selectedDate: string;
+  doctors : any[] = [];
+  specialityName = 'Prosthetics';
+  doctorId : string;
+  patientId : string;
+  patientstatus : number;
 
   ngAfterViewInit() {
     $.getScript('../../../assets/js/main.js');
@@ -75,7 +80,7 @@ export class HospitalListItemComponent implements OnInit, AfterViewInit {
 
   bookAppoinment(appoint): void {
     const UID = firebase.auth().currentUser.uid;
-    const DATE = this.selectedDate + '/02/2018';
+    const DATE = this.selectedDate + '-02-2018';
     firebase
       .database()
       .ref(
@@ -113,7 +118,27 @@ export class HospitalListItemComponent implements OnInit, AfterViewInit {
         this.selectedHospital = temp;
         // console.log(this.hospitals);
       });
+
+      
   }
+
+  bookAppoinment(appoint): void {
+    const UID = firebase.auth().currentUser.uid;
+    const DATE = this.selectedDate + '-02-2018';
+    firebase
+      .database()
+      .ref(
+        `appointmentsdoctor/${this.hospitalkey}/${this.service}/${
+          DATE
+        }/requested`
+      )
+      .push({
+        timeslot: appoint,
+        status: -1,
+        userid: UID
+      });
+  }
+
 }
 
 class ReviewItem {

@@ -1,0 +1,46 @@
+
+<div class="container-wrap">
+		<aside id="fh5co-hero">
+			<div class="flexslider">
+				<ul class="slides">
+			   	<li style="background-image: url(../../assets/images/img_bg_3.jpg);">
+			   		<div class="overlay-gradient"></div>
+			   		<div class="container-fluids">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 slider-text slider-text-bg">
+				   				<div class="slider-text-inner text-center">
+				   					<h1>Common Issues</h1>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>		   	
+			  	</ul>
+		  	</div>
+		</aside>
+        
+		<div id="fh5co-about">
+
+			<div class="container-wrap">
+		
+			<div class="flexslider">
+<div class="col-md-12">
+    <div class="input-group">
+   		<input list="specialities" type="text" class="form-control" placeholder="Search issue" name="txtSearch" [(ngModel)]="speciality">
+ 
+		<datalist id="specialities">
+		  <option *ngFor="let speciality of specialities" [value]="speciality"></option>
+		</datalist>
+   		
+   		<div class="input-group-btn">
+        	<button class="btn btn-primary" type="submit" (click)="searchHospital()">
+        	<i class="fa fa-search fa-2x" aria-hidden="true"></i>
+        </button>
+		</div>
+   	
+   	</div>
+  </div>
+</div></div>
+		
+		</div><!-- END container-wrap -->
+	
