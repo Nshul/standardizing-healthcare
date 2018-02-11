@@ -50,9 +50,10 @@ export class HospitalsignupComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit(f : NgForm){
-    const { email,pass,name,contact,address,pincode,services,tier } = f.value;
+    const { email,pass,name,contact,address,pincode,services,latitude,longitude,tier } = f.value;
     console.log(f.value);
-    this.authService.signup(email,pass,name,contact,address,pincode,services,tier);
+    const geolocation = {latitude, longitude}
+    this.authService.signup(email,pass,name,contact,address,pincode,services,tier,geolocation);
     
   }
 
