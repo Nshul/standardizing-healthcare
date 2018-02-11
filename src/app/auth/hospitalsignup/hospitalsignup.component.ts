@@ -26,7 +26,7 @@ export class HospitalsignupComponent implements OnInit, AfterViewInit {
   errormessage : string ;
 
   services : string[] = [
-      'X-Ray',
+      'x_ray',
       'Magnetic Resonance Imaging (MRI)',
       'CT Scan',
       'PET Scan',

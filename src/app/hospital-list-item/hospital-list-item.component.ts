@@ -75,7 +75,7 @@ export class HospitalListItemComponent implements OnInit, AfterViewInit {
 
   bookAppoinment(appoint): void {
     const UID = firebase.auth().currentUser.uid;
-    const DATE = this.selectedDate + '/02/2018';
+    const DATE = this.selectedDate + '-02-2018';
     firebase
       .database()
       .ref(

@@ -1,47 +1,83 @@
 <div class="container">
   <div class="span3 well">
     <div class="text-center pagination-centered">
-      <h3 class="media-heading">Your Health Data <!--fname lname -->
+      <h3 class="media-heading">{{hospitalUser.name}}
+        <!--fname lname -->
         <small></small>
       </h3>
       <span>
-        <strong>UserName </strong>
+        <strong>{{hospitalUser.address}} </strong>
       </span>
       <!-- <span class="label label-warning">HTML5/CSS</span> -->
-      <br><span class="label label-info">user_email</span>  <!-- insurance -->
+      <br>
+      <span class="label label-info">{{hospitalUser.tier}}</span>
+      <!-- insurance -->
       <!-- <span class="label label-info">Microsoft Office</span>
       <span class="label label-success">Windows XP, Vista, 7</span> -->
     </div>
     <hr>
     <div class="text-center pagination-centered">
- <div class="row">
+      <div class="row">
 
-    
-       
-<div class="col-md-12">
-	<!-- Category -->
-	<div class="single category">
-		<h3 class="side-title">Pending Appointments</h3>
-		<ul class="list-unstyled">
-            <li *ngFor="let appointment of pendingAppointments"><a href="" title=""><span class="pull-left">{{appointment.appointment_id}}</span> {{appointment.type}} &nbsp;&nbsp; | &nbsp;&nbsp;{{appointment.docid}}<span class="pull-right"> <button class="btn btn-success" >Approve</button><button class="btn btn-danger" >Decline</button></span></a></li>
-            <li><a href="" title=""><span class="pull-left">App_id</span> Details<span class="pull-right"> <button class="btn btn-success" >Approve</button><button class="btn btn-danger" >Decline</button></span></a></li>
-            <li><a href="" title=""><span class="pull-left">App_id</span> Details<span class="pull-right"> <button class="btn btn-success" >Approve</button><button class="btn btn-danger" >Decline</button></span></a></li>
-            <li><a href="" title=""><span class="pull-left">App_id</span> Details<span class="pull-right"> <button class="btn btn-success" >Approve</button><button class="btn btn-danger" >Decline</button></span></a></li>
-			
-		</ul>
-       
-   </div>
-     </div>
-     
-     
-     
-     
-</div>
+
+
+        <div class="col-md-12">
+          <!-- Category -->
+          <div class="single category">
+            <h3 class="side-title">Pending Appointments</h3>
+            <ul class="list-unstyled">
+              <li *ngFor="let appointment of pendingAppointments">
+                <a title="">
+                  <span class="pull-left">{{appointment.service_type}}</span> {{appointment.date}} &nbsp;&nbsp; | &nbsp;&nbsp;{{appointment.timeslot}}
+                  <span
+                    class="pull-right">
+                    <button class="btn btn-success" (click)="approveAppointment(appointment.service_type,appointment.date,appointment.appointmentKey)">Approve</button>
+                    <button class="btn btn-danger" (click)="rejectAppointment(appointment.service_type,appointment.date,appointment.appointmentKey)">Decline</button>
+                    </span>
+                </a>
+              </li>
+              <!-- <li>
+                <a href="" title="">
+                  <span class="pull-left">App_id</span> Details
+                  <span class="pull-right">
+                    <button class="btn btn-success">Approve</button>
+                    <button class="btn btn-danger">Decline</button>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="" title="">
+                  <span class="pull-left">App_id</span> Details
+                  <span class="pull-right">
+                    <button class="btn btn-success">Approve</button>
+                    <button class="btn btn-danger">Decline</button>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="" title="">
+                  <span class="pull-left">App_id</span> Details
+                  <span class="pull-right">
+                    <button class="btn btn-success">Approve</button>
+                    <button class="btn btn-danger">Decline</button>
+                  </span>
+                </a>
+              </li> -->
+
+            </ul>
+
+          </div>
+        </div>
+
+
+
+
+      </div>
       <br>
     </div>
 
     <!-- Recent Appointments Div -->
-   
-    
+
+
 
   </div>
