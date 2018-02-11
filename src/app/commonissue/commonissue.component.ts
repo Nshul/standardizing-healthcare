@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as firebase from 'firebase';
 
-declare var $ : any;
+declare var $: any;
 
 @Component({
   selector: 'app-commonissue',
@@ -9,8 +9,7 @@ declare var $ : any;
   styleUrls: ['./commonissue.component.css']
 })
 export class CommonissueComponent implements OnInit, AfterViewInit {
-
-  constructor() { }
+  constructor() {}
 
   patientId;
   patientstatus;
@@ -19,36 +18,31 @@ export class CommonissueComponent implements OnInit, AfterViewInit {
 
   specialities = ['prosthetics'];
 
-
   ngOnInit() {
-  	firebase
+    firebase
       .database()
-      .ref(
-        `specialities/prosthetics`
-      )
+      .ref(`specialities/prosthetics`)
       .on('value', snapshot => {
         let temp: any = snapshot.val();
         console.log(temp);
-        let i : any;
-        for(let i in temp){
+        let i: any;
+        for (let i in temp) {
           this.doctorId = i;
-          for(let j in this.doctorId){
+          for (let j in this.doctorId) {
             this.patientId = this.doctorId.uid;
-            this.patientstatus = this.doctorId.status; 
+            this.patientstatus = this.doctorId.status;
           }
         }
         // console.log(this.hospitals);
       });
   }
 
-  ngAfterViewInit(){
-    $.getScript('../../../assets/js/main.js')
+  ngAfterViewInit() {
+    $.getScript('../../../assets/js/main.js');
     $.getScript('../../../assets/js/bootstrap.min.js');
   }
 
-  searchHospital(){
-
-  }
+  searchHospital() {}
 
   bookAppoinment(appoint): void {
     // const UID = firebase.auth().currentUser.uid;
@@ -66,7 +60,4 @@ export class CommonissueComponent implements OnInit, AfterViewInit {
     //     userid: UID
     //   });
   }
-
-
-
 }

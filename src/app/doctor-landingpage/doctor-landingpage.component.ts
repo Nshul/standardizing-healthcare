@@ -5,7 +5,7 @@ import * as firebase from 'firebase';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DoctorsignupService } from '../auth/doctorsignup.service';
 
-declare var $ : any;
+declare var $: any;
 
 @Component({
   selector: 'app-doctor-landingpage',
@@ -13,45 +13,49 @@ declare var $ : any;
   styleUrls: ['./doctor-landingpage.component.css']
 })
 export class DoctorLandingpageComponent implements OnInit, AfterViewInit {
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private authService: DoctorsignupService
+  ) {}
 
-  constructor(private router : Router, private activatedRoute : ActivatedRoute, private authService : DoctorsignupService) { }
+  no_of_medicines: number = 0;
+  arr: number[] = [];
+  appointmentId: string;
 
-  no_of_medicines : number = 0;
-  arr : number[] = [];
-  appointmentId : string;
+  appointments: { id: string; date: string; time: string }[] = [
+    { id: 'FORTIS_TTL_1', date: '10/10/2010', time: '10:00' },
+    { id: 'MAX_TTL_1', date: '10/10/2010', time: '10:00' },
+    { id: 'MAX_TTR_2', date: '10/10/2010', time: '10:00' }
+  ];
 
-  appointments : { id: string, date: string, time: string}[] = 
-  			[{ id:"FORTIS_TTL_1", date:"10/10/2010", time:"10:00" },
-  			 { id:"MAX_TTL_1", date:"10/10/2010", time:"10:00" },
-  			 { id:"MAX_TTR_2", date:"10/10/2010", time:"10:00" }];
+  @ViewChild('f') form: NgForm;
 
-  @ViewChild('f') form : NgForm;
+  onSubmit(f: NgForm) {
+    console.log(f.value);
+    firebase
+      .database()
+      .ref(`/prescriptions/${this.appointmentId}`)
+      .set(f.value);
+  }
 
+  ngOnInit() {
+    if (!this.authService.isAuth()) {
+      this.router.navigate(['../signin'], { relativeTo: this.activatedRoute });
+    }
+  }
 
-	onSubmit(f : NgForm){
-		console.log(f.value);
-		firebase.database().ref(`/prescriptions/${this.appointmentId}`)
-        .set(f.value);
-  	}
+  ngAfterViewInit() {
+    $.getScript('../../../assets/js/main.js');
+  }
 
-	ngOnInit() {
-	  	if(!this.authService.isAuth()){
-	  		this.router.navigate(['../signin'],{relativeTo : this.activatedRoute});
-	  	}
-	}
+  setNum() {
+    for (var i = 0; i < this.no_of_medicines; i++) {
+      this.arr.push(i);
+    }
+  }
 
-	  ngAfterViewInit(){
-	  	$.getScript('../../../assets/js/main.js');
-	  }
-
-	  setNum(){
-	  	for(var i=0;i<this.no_of_medicines;i++){
-	  		this.arr.push(i);
-	  	}
-	  }
-
-	  prescribe(appointmentId){
-	  	this.appointmentId = appointmentId;
-	  }
-
+  prescribe(appointmentId) {
+    this.appointmentId = appointmentId;
+  }
 }

@@ -46,6 +46,15 @@ export class UserProfileComponent implements OnInit, AfterViewInit {
         console.log('inside snapshot f:', f);
         this.selectedPatient = f;
       });
+
+    firebase
+      .database()
+      .ref(`wallet/${UID}`)
+      .on('value', snapshot => {
+        const f = snapshot.val();
+        console.log('inside snapshot f:', f);
+        this.selectedPatient.walletamount = f.amount;
+      });
   }
 }
 

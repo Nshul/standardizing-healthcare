@@ -46,6 +46,13 @@ export class HospitalLandingpageComponent implements OnInit {
 
     firebase
       .database()
+      .ref(`wallet/${UID}`)
+      .on('value', snapshot => {
+        this.hospitalUser.walletbalance = snapshot.val().amount;
+      });
+
+    firebase
+      .database()
       .ref(`appointments/${UID}`)
       .on('value', snapshot => {
         const temp1 = snapshot.val();
@@ -81,11 +88,85 @@ export class HospitalLandingpageComponent implements OnInit {
 
   approveAppointment(serviceType: string, date: string, key: string) {
     const UID = firebase.auth().currentUser.uid;
+    let userWalletReqKey;
+
+    firebase
+      .database()
+      .ref(`appointments/${UID}/${serviceType}/${date}/requested/${key}`)
+      .once('value', Snapshot => {
+        userWalletReqKey = Snapshot.val().userid;
+      });
+
     firebase
       .database()
       .ref(`appointments/${UID}/${serviceType}/${date}/requested/${key}`)
       .update({
         status: '1'
+      });
+
+    let amountHospital, amountUser, priceService;
+
+    firebase
+      .database()
+      .ref(`wallet/${UID}`)
+      .once('value', snapshot => {
+        amountHospital = snapshot.val().amount;
+
+        // console.log('LOLOLOL:', key);
+
+        firebase
+          .database()
+          .ref(`wallet/${userWalletReqKey}`)
+          .once('value', Snapshot => {
+            amountUser = Snapshot.val().amount;
+          });
+        firebase
+          .database()
+          .ref(`hospitals/${UID}`)
+          .once('value', Snapshot => {
+            if (Snapshot.val().tier == 'gold') {
+              priceService = 1000;
+            } else if (Snapshot.val().tier == 'platinum') {
+              priceService = 1500;
+            } else {
+              priceService = 500;
+            }
+
+            firebase
+              .database()
+              .ref(`wallet/${UID}`)
+              .update({
+                amount: parseInt(amountHospital) + parseInt(priceService)
+              })
+              .then(() => {
+                console.log('Updating key now');
+                firebase
+                  .database()
+                  .ref(`wallet/${userWalletReqKey}`)
+                  .update({
+                    amount: parseInt(amountUser) - parseInt(priceService)
+                  });
+              });
+
+            firebase
+              .database()
+              .ref(`wallet/${UID}/transations`)
+              .push({
+                serviceType,
+                date,
+                key,
+                otherparty: userWalletReqKey
+              });
+            firebase
+              .database()
+              .ref(`wallet/${userWalletReqKey}/transations`)
+              .push({
+                serviceType,
+                date,
+                key,
+                otherparty: UID
+              });
+          });
       });
   }
 

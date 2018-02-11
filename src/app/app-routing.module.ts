@@ -18,35 +18,35 @@ import { CommonissueComponent } from './commonissue/commonissue.component';
 import { HealthDataComponent } from './health-data/health-data.component';
 import { AppointmentPrescriptionComponent } from './appointment-prescription/appointment-prescription.component';
 
-const routercons : Routes = [
-  {path : '', redirectTo: '/home', pathMatch: 'full' },
-  {path : 'home',component : HomeComponent},
-  {path : 'signin',component : SigninComponent},
-  {path : 'signup', component : SignupComponent},
-  {path : 'doctorsignup', component : DoctorsignupComponent},
-  {path : 'hospitalsignup', component : HospitalsignupComponent},
-  {path : 'doctorlanding', component : DoctorLandingpageComponent},
-  {path : 'about', component : AboutComponent},
-  {path : 'contact', component : ContactComponent},
-  {path : 'hospital-list/:service', component : HospitalListComponent},
-  {path : ':service/:pincode/:hospitalid', component: HospitalListItemComponent},
-  {path : ':service/:pincode/:hospitalid', component: HospitalListItemComponent},
-  {path : 'userprofile', component: UserProfileComponent},
-  {path : 'logout', redirectTo: '/home'},
-  {path : 'hospitallanding', component: HospitalLandingpageComponent },
-  {path : 'commonissue', component: CommonissueComponent },
-  {path : 'healthdata', component: HealthDataComponent },
-  {path : 'currentpres', component: AppointmentPrescriptionComponent },
-  
+const routercons: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'signin', component: SigninComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'doctorsignup', component: DoctorsignupComponent },
+  { path: 'hospitalsignup', component: HospitalsignupComponent },
+  { path: 'doctorlanding', component: DoctorLandingpageComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'hospital-list/:service', component: HospitalListComponent },
+  {
+    path: ':service/:pincode/:hospitalid',
+    component: HospitalListItemComponent
+  },
+  {
+    path: ':service/:pincode/:hospitalid',
+    component: HospitalListItemComponent
+  },
+  { path: 'userprofile', component: UserProfileComponent },
+  { path: 'logout', redirectTo: '/home' },
+  { path: 'hospitallanding', component: HospitalLandingpageComponent },
+  { path: 'commonissue', component: CommonissueComponent },
+  { path: 'healthdata', component: HealthDataComponent },
+  { path: 'currentpres', component: AppointmentPrescriptionComponent }
 ];
 
-
 @NgModule({
- imports : [RouterModule.forRoot(routercons)],
- exports : [RouterModule] 
- 
+  imports: [RouterModule.forRoot(routercons)],
+  exports: [RouterModule]
 })
-
-export class AppRoutingModule{
-
-}
+export class AppRoutingModule {}
